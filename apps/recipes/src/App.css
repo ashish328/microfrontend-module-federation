@@ -1,0 +1,25 @@
+.recipes-list {
+  list-style: none;
+  padding: 0;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipes-list li {
+  margin: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: calc(33.333% - 2rem);
+  box-sizing: border-box;
+  text-align: center;
+  overflow: hidden;
+}
+
+.recipes-list li img{
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+}

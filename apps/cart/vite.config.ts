@@ -18,7 +18,14 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: false,
-    cssCodeSplit: false
+    cssCodeSplit: false,
+    rollupOptions: {
+      output: {
+        format: 'esm',
+        entryFileNames: 'assets/[name].js',
+        minifyInternalExports: false
+      }
+    }
   },
   server: {
     port: 5001

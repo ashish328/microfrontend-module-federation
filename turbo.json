@@ -4,8 +4,7 @@
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "inputs": ["$TURBO_DEFAULT$", ".env*"]
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -16,6 +15,16 @@
     "dev": {
       "cache": false,
       "persistent": true
+    },
+    "build:watch": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build:watch"]
+    },
+    "serve": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^serve"]
     }
   }
 }

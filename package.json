@@ -5,12 +5,14 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",
+    "build:watch": "turbo run build:watch",
+    "serve": "turbo run serve",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types"
   },
   "devDependencies": {
-    "@originjs/vite-plugin-federation": "^1.4.1",
     "prettier": "^3.6.2",
+    "ts-loader": "^9.5.2",
     "turbo": "^2.5.5",
     "typescript": "5.8.3"
   },

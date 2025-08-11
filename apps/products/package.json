@@ -7,13 +7,16 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:watch": "tsc -b --watch && vite build --watch",
+    "serve": "vite preview --port 5003 --strictPort"
   },
   "dependencies": {
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
+    "@originjs/vite-plugin-federation": "^1.4.1",
     "@eslint/js": "^9.32.0",
     "@types/react": "^19.1.9",
     "@types/react-dom": "^19.1.7",

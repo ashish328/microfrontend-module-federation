@@ -13,6 +13,12 @@ export default defineConfig({
       remotes: {
         products: 'http://localhost:5003/assets/remoteEntry.js',
         cart: 'http://localhost:5001/assets/remoteEntry.js',
+        recipes: {
+          external: 'http://localhost:5004/remoteEntry.js',
+          externalType: 'url',
+          format: 'var',
+          from: 'webpack'
+        }
       },
       shared: ['react', 'react-dom', 'vue'],
     })
@@ -20,7 +26,14 @@ export default defineConfig({
   build: {
     target: 'esnext',
     minify: false,
-    cssCodeSplit: false
+    cssCodeSplit: false,
+    rollupOptions: {
+      output: {
+        format: 'esm',
+        entryFileNames: 'assets/[name].js',
+        minifyInternalExports: false
+      }
+    }
   },
   server: {
     port: 5002

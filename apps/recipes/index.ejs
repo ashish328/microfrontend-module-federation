@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- < % for (key in htmlWebpackPlugin.files.css) { %>
+            <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[key] %>"/>
+        <% } %> -->
+        <meta charset="UTF-8">
+        <% for (key in htmlWebpackPlugin.files.js) { %>
+            <script type="module" src="<%= htmlWebpackPlugin.files.js[key] %>"></script>
+        <% } %>
+    </head>
+    <body>
+        <div id="root"></div>
+    </body>
+</html>
