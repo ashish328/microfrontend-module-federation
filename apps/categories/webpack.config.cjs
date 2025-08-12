@@ -1,6 +1,6 @@
   const path = require('path');
   const HtmlWebpackPlugin = require('html-webpack-plugin');
-  const { experiments } = require('webpack');
+  // const { experiments } = require('webpack');
   const { ModuleFederationPlugin } = require('webpack').container;
   const deps = require('./package.json').dependencies;
     module.exports = {
@@ -41,11 +41,12 @@
       // },
       plugins: [
         new ModuleFederationPlugin({
-          name: 'recipes',
+          name: 'categories',
           filename: 'remoteEntry.js',
           // library: { type: 'module'},
           exposes: {
-            './Recipes': './src/components/Recipes.tsx',
+            './CategoryList': './src/components/CategoryList.tsx',
+            './categoryStore': './src/store',
           },
           shared: {
             react: { 
@@ -56,12 +57,16 @@
               singleton: true, 
               requiredVersion: deps['react-dom'], 
             },
+            'zustand': { 
+              singleton: true, 
+              requiredVersion: deps['zustand'], 
+            },
           },
         }),
         new HtmlWebpackPlugin({
-          // template: './index.ejs',
           template: './public/index.html',
           filename: 'index.html',
+          // template: './index.ejs',
           // inject: false,
         }),
       ],

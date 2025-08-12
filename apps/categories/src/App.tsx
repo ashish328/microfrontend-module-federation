@@ -1,12 +1,12 @@
 import { type FC } from 'react';
-import Recipes from './components/Recipes';
+import CategoryList from './components/CategoryList';
 import './App.css';
 
 const App: FC = () => {
     
     return (
         <div>
-            <Recipes />
+            <CategoryList />
         </div>
     );
 };

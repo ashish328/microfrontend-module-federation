@@ -11,6 +11,7 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './ProductsListing': './src/pages/ProductsListing.tsx',
+        './Products': './src/components/Products.tsx',
       },
       shared: ['react', 'react-dom'],
     })

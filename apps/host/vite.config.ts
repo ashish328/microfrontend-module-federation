@@ -13,7 +13,7 @@ export default defineConfig({
       remotes: {
         products: 'http://localhost:5003/assets/remoteEntry.js',
         cart: 'http://localhost:5001/assets/remoteEntry.js',
-        recipes: {
+        categories: {
           external: 'http://localhost:5004/remoteEntry.js',
           externalType: 'url',
           format: 'var',

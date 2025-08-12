@@ -1,0 +1,41 @@
+.store-layout {
+  height: 100vh;
+  margin: -8px;
+}
+.store-content {
+  display: grid;
+  grid-template-columns: 0.33fr 1fr;
+  grid-template-rows: 1fr;
+  height: 100%;
+  overflow: hidden;
+}
+
+.store-sidebar {
+  overflow-y: auto;
+  padding: 0 1rem 1rem;
+  border-right: 1px solid #023047;
+}
+
+.store-products {
+    overflow-y: auto;
+    padding: 0 1rem;
+}
+
+.store-products-list {
+    padding: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.store-category-selected {
+    background-color: #ffffff;
+    padding: 1rem;
+    margin: 0 -1rem 1rem;
+    position: sticky;
+    top: 0;
+}
+
+.store-category-selected h2 {
+    margin: 0;
+}

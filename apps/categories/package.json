@@ -1,5 +1,5 @@
 {
-  "name": "recipes",
+  "name": "categories",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "react": "^19.1.1",
-    "react-dom": "^19.1.1"
+    "react-dom": "^19.1.1",
+    "zustand": "^5.0.7"
   },
   "devDependencies": {
     "@babel/core": "^7.28.0",

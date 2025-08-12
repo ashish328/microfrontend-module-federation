@@ -1,0 +1,30 @@
+.product {
+    width: 100%;
+    border: 1px solid #023047;
+    height: 100%;
+    border-radius: 4px;
+}
+
+.product .image {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    border-bottom: 1px solid #023047;
+}
+.product img {
+    width: 100%;
+    height: auto;
+}
+
+.product .details {
+    padding: 1rem;
+}
+
+.product .details p {
+    margin: 0 0 1rem;
+    color: #023047;
+}
+
+.product .details p:last-child {
+    margin: 0;
+}
