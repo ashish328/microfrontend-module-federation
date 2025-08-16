@@ -16,3 +16,4 @@ declare module 'categories/categoryStore' {
 	>;
 }
 declare module 'products/Products';
+declare module 'cart/ItemsInCartHeader';

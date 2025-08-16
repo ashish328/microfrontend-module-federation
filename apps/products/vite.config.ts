@@ -13,6 +13,9 @@ export default defineConfig({
         './ProductsListing': './src/pages/ProductsListing.tsx',
         './Products': './src/components/Products.tsx',
       },
+      remotes: {
+        cart: 'http://localhost:5001/assets/remoteEntry.js',
+      },
       shared: ['react', 'react-dom'],
     })
   ],

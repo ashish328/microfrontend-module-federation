@@ -1,20 +1,32 @@
+// VueWrapper.tsx
 import { useEffect, useRef } from 'react'
 import { createApp, h } from 'vue'
+import { createPinia, type Pinia } from 'pinia'
 
-export default function VueWrapper({ component, props = {} } : { component: any, props?: Record<string, any> }) {
-  const containerRef = useRef(null)
+let pinia: Pinia | null = null
+
+export default function VueWrapper({ component, props = {} }: { component: any, props?: Record<string, any> }) {
+  const containerRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    if(!component) return;
+    if (!component) return
 
     const app = createApp({
       render() {
         return h(component, props)
-      }
+      },
     })
-    app.mount(containerRef.current ?? '')
 
-    return () => app.unmount()
+    if (!pinia) {
+      pinia = createPinia()
+    }
+    app.use(pinia)
+
+    app.mount(containerRef.current!)
+
+    return () => {
+      app.unmount()
+    }
   }, [component, props])
 
   return <div ref={containerRef}></div>

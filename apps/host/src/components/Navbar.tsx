@@ -1,5 +1,6 @@
 import {type FC} from 'react'
 import './Navbar.css'
+import { ItemsInCartHeader } from 'cart/ItemsInCartHeader'
 
 const Navbar: FC = () => {
     return (
@@ -13,7 +14,8 @@ const Navbar: FC = () => {
                 <li><a href="/cart">Cart</a></li>
             </ul>
             <div className="cart-info">
-                <p>Cart Items: <span className='item-count'>0</span></p>
+                {/* <p>Cart Items: <span className='item-count'>0</span></p> */}
+                <ItemsInCartHeader />
             </div>
         </nav>
     );

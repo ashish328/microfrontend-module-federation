@@ -18,13 +18,34 @@
 
 .product .details {
     padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 139px;
+    box-sizing: border-box;
 }
 
 .product .details p {
-    margin: 0 0 1rem;
+    margin: 0 0;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
     color: #023047;
 }
 
-.product .details p:last-child {
-    margin: 0;
+.product .details .price {
+    font-weight: bold;
+    color: #fb8500;
+}
+
+.product .description {
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+}
+
+.products .add-to-cart {
+    align-self: end;
 }

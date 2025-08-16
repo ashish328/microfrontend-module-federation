@@ -1,18 +1,23 @@
 import { defineConfig } from 'vite'
-import vue from '@vitejs/plugin-vue'
+import react from '@vitejs/plugin-react-swc'
 import federation from '@originjs/vite-plugin-federation'
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [
-    vue(),
+    react(),
     federation({
-      name: 'cart',
+      name: 'host',
       filename: 'remoteEntry.js',
       exposes: {
-        './App': './src/App.vue',
+        './AddToCart': './src/components/AddToCart.tsx',
+        './ItemsInCartHeader': './src/components/ItemsInCartHeader.tsx',
+        './CartStore': './src/store',
       },
-      shared: ['vue'],
+      remotes: {
+        cart: 'http://localhost:5001/assets/remoteEntry.js',
+      },
+      shared: ['react', 'react-dom', 'zustand'],
     })
   ],
   build: {
@@ -28,6 +33,6 @@ export default defineConfig({
     }
   },
   server: {
-    port: 5001
+    port: 5003
   }
 })
