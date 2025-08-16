@@ -1,34 +1,61 @@
 # Micro Frontend Module Federation
 
-Implementing a small e-commerce app with Micro Frontend Architecture using Module Federation.
+This project implements a small **e-commerce application** using **Micro Frontend Architecture** with **Module Federation**.
 
-### Apps
+---
 
-- `Cart`: a Vite + React project which takes care of cart components. it should always served on port 5001 as it acts as remote for products & host apps.
+## Applications
 
-- `Products`: a Vite + React project which takes care of products and its listing. it should always served on port 5003 as it acts as remote for host app.
+- **Cart**  
+  - A Vite + React application responsible for cart-related components.  
+  - Runs on port **5001**.  
+  - Acts as a **remote** for both the `Products` and `Host` apps.  
 
-- `Categories`: a Webpack + React project which takes care of categories. it should always served on port 5004 as it acts as remote host app.
+- **Products**  
+  - A Vite + React application responsible for product listings and product details.  
+  - Runs on port **5003**.  
+  - Acts as a **remote** for the `Host` app.  
 
-- `host`:  a Vite + React project which holds all the above compoents to display one e-commerce app. can be served on any port but its hardcoded to 5002.
+- **Categories**  
+  - A Webpack + React application responsible for category management.  
+  - Runs on port **5004**.  
+  - Acts as a **remote** for the `Host` app.  
 
-update the `vite.config.ts` file of products & host apps if any change in port number is need.
+- **Host**  
+  - A Vite + React application that integrates all the above applications to display a unified e-commerce platform.  
+  - Runs on port **5002** (default, but can be changed if needed).  
 
+> **Note:** If you change any app’s port, update the `vite.config.ts` file in both the `Products` and `Host` apps.
 
-### Build and Run
+---
 
-Install dependencies
-```
+## Build and Run
+
+Install dependencies:
+```bash
 npm install
 ```
 
-as vite federation generate `remoteEntry.js` only when the app is build we need to build and sever the application
+⚠️ Important: Vite Federation generates remoteEntry.js only during the build step (not in dev mode).
+You must build and serve the apps instead of running them directly in dev.
 
-```
-# Build the apps
+```bash
+# Build the apps (with watch mode for development)
 npm run build:watch
 
 # Serve the apps
 npm run serve
 ```
 
+```mermaid
+flowchart TD
+  Cart["Cart (Vite+React) :5001"]
+  Products["Products (Vite+React) :5003"]
+  Categories["Categories (Webpack+React) :5004"]
+  Host["Host (Vite+React) :5002"]
+
+  Host --> Cart
+  Host --> Products
+  Host --> Categories
+  Products --> Cart
+```
